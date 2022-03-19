@@ -18,6 +18,16 @@ namespace MyLists
             Length = 0;
         }
 
+        public void AddToEnd(int value)
+        {
+            if (Length >= _array.Length)
+            {
+                UpSize();
+            }
+            _array[Length] = value;
+            Length++;
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
