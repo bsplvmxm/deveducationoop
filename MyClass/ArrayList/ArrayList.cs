@@ -142,6 +142,15 @@ namespace MyLists
             }
         }
 
+        public int GetValueByIndex(int index)
+        {
+            if (index < 0 || index > Length)
+            {
+                throw new Exception("index must be >=0 and < Length");
+            }
+            return _array[index];
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
