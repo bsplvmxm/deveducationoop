@@ -210,6 +210,44 @@ namespace MyLists
             _array = newArray;
         }
 
+        public int FindMaxElement()
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Length must be > 0");
+            }
+
+            int max = _array[0];
+
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] > max)
+                {
+                    max = _array[i];
+                }
+            }
+            return max;
+        }
+
+        public int FindMinElement()
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Length must be > 0");
+            }
+
+            int min = _array[0];
+
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] < min)
+                {
+                    min = _array[i];
+                }
+            }
+            return min;
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
