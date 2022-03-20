@@ -155,6 +155,29 @@ namespace MyLists
             return _array[index];
         }
 
+        public int FindFirstIndexByValue(int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Length of array == 0, nthng to search");
+            }
+
+            int firstIndex = 0;
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] == value)
+                {
+                    firstIndex = i;
+                    break;
+                }
+                else
+                {
+                    firstIndex = -1;
+                }
+            }
+            return firstIndex;
+        }
 
         public void WriteArray()
         {
