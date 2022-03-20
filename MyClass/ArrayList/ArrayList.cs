@@ -91,6 +91,22 @@ namespace MyLists
             Length--;
         }
 
+        public void DeleteFromEndElements(int count)
+        {
+            if (Length < count)
+            {
+                throw new Exception("Length of array < count numbers that u want to delete");
+            }
+            if (Length <= _array.Length / 2)
+            {
+                DownSize();
+            }
+            for (int i = 0; i < count; i++)
+            {
+                DeleteFromEnd();
+            }
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
