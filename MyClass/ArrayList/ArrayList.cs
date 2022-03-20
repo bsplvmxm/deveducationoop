@@ -26,7 +26,7 @@ namespace MyLists
 
         public void AddToBegin(int value)
         {
-            if (Length + 1 >= _array.Length)
+            if (Length + 1>= _array.Length)
             {
                 UpSize();
             }
@@ -103,7 +103,7 @@ namespace MyLists
             }
             for (int i = 0; i < count; i++)
             {
-                DeleteFromEnd();
+                Length--;
             }
         }
 
@@ -117,10 +117,12 @@ namespace MyLists
             {
                 DownSize();
             }
-            for (int i = 1; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
-                DeleteFromBegin();
+                MoveLeft();
+                Length--;
             }
+
         }
 
         public void WriteArray()
