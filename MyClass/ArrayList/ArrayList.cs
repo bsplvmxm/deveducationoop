@@ -36,6 +36,18 @@ namespace MyLists
             Length++;
         }
 
+        public void AddWithIndex(int index, int value)
+        {
+            if (Length + 1 >= _array.Length)
+            {
+                UpSize();
+            }
+            MoveRight(index);
+
+            _array[index] = value;
+            Length++;
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
