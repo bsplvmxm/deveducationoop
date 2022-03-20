@@ -313,6 +313,31 @@ namespace MyLists
             }
         }
 
+        public void SortInDescending()
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Length must be > 0, nthng to find");
+            }
+
+            int tmp;
+
+            for (int i = 0; i < Length - 1; i++)
+            {
+                int max = i;
+                for (int j = i + 1; j < Length; j++)
+                {
+                    if (_array[j] > _array[max])
+                    {
+                        max = j;
+                    }
+                }
+                tmp = _array[max];
+                _array[max] = _array[i];
+                _array[i] = tmp;
+            }
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
