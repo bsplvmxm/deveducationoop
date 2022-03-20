@@ -342,7 +342,7 @@ namespace MyLists
         {
             if (Length == 0)
             {
-                throw new Exception("Length of array == 0, nthng to search");
+                throw new Exception("Length of array == 0, nthng to delete");
             }
 
             int firstIndex = 0;
@@ -361,6 +361,28 @@ namespace MyLists
                 }
             }
             return firstIndex;
+        }
+
+        public int DeleteElementsByValue(int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Length of array == 0, nthng to delete");
+            }
+
+            int count = 0;
+            int index = 0;
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] == value)
+                {
+                    index = i;
+                    DeleteWithIndex(index);
+                    count++;
+                }
+            }
+            return count;
         }
 
         public void WriteArray()
