@@ -48,6 +48,15 @@ namespace MyLists
             Length++;
         }
 
+        public void DeleteFromEnd()
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Length of array < 1, nthng to delete");
+            }
+            
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
@@ -61,11 +70,14 @@ namespace MyLists
         {
             int newLength = (int)(_array.Length * 1.5d + 1);
             int[] newArray = new int[newLength];
-            for (int i = 0; i < _array.Length; i++)
-            {
-                newArray[i] = _array[i];
-            }
-            _array = newArray;
+            CopyArray(newArray);
+        }
+
+        private void DownSize()
+        {
+            int newLength = (int)(_array.Length / 3);
+            int[] newArray = new int[newLength];
+            CopyArray(newArray);
         }
 
         private void CopyArray(int[] newArray)
