@@ -141,6 +141,10 @@ namespace MyLists
                 Length--;
             }
         }
+        public int GetLength()
+        {
+            return Length;
+        }
 
         public int GetValueByIndex(int index)
         {
@@ -150,6 +154,7 @@ namespace MyLists
             }
             return _array[index];
         }
+
 
         public void WriteArray()
         {
