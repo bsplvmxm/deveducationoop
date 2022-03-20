@@ -107,6 +107,22 @@ namespace MyLists
             }
         }
 
+        public void DeleteFromBeginElements(int count)
+        {
+            if (Length < count)
+            {
+                throw new Exception("Length of array < count numbers that u want to delete");
+            }
+            if (Length <= _array.Length / 2)
+            {
+                DownSize();
+            }
+            for (int i = 1; i < count; i++)
+            {
+                DeleteFromBegin();
+            }
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
