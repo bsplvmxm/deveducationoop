@@ -125,6 +125,23 @@ namespace MyLists
 
         }
 
+        public void DeleteWithIndexElements(int index, int count)
+        {
+            if (Length < count || Length < 1)
+            {
+                throw new Exception("Length of array < count numbers that u want to delete or < 1 => nthng delete");
+            }
+            if (Length <= _array.Length / 2)
+            {
+                DownSize();
+            }
+            for (int i = 0; i < count; i++)
+            {
+                MoveLeft(index);
+                Length--;
+            }
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
