@@ -61,6 +61,21 @@ namespace MyLists
             Length--;
         }
 
+        public void DeleteFromBegin()
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Length of array < 1, nthng to delete");
+            }
+            if (Length <= _array.Length / 2)
+            {
+                DownSize();
+            }
+            MoveLeft();
+
+            Length--;
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
@@ -96,6 +111,7 @@ namespace MyLists
         private void MoveRight(int index = 0)
         {
             int[] newArray = new int[Length + 1];
+
             for (int i = 0; i < index; i++)
             {
                 newArray[i] = _array[i];
@@ -105,6 +121,18 @@ namespace MyLists
                 newArray[i + 1] = _array[i];
             }
             _array = newArray;
+        }
+
+        private void MoveLeft()
+        {
+            int[] newArray = new int[Length - 1];
+
+            for (int i = 0; i < Length - 1; i++)
+            {
+                newArray[i] = _array[i + 1];
+            }
+            _array = newArray;
+
         }
     }
 }
