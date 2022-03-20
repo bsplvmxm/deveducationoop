@@ -197,7 +197,7 @@ namespace MyLists
         {
             if (Length < 1)
             {
-                throw new Exception("Length must be > 0");
+                throw new Exception("Length must be > 0, nthng to find");
             }
 
             int[] newArray = new int[Length];
@@ -214,7 +214,7 @@ namespace MyLists
         {
             if (Length < 1)
             {
-                throw new Exception("Length must be > 0");
+                throw new Exception("Length must be > 0, nthng to find");
             }
 
             int max = _array[0];
@@ -233,7 +233,7 @@ namespace MyLists
         {
             if (Length < 1)
             {
-                throw new Exception("Length must be > 0");
+                throw new Exception("Length must be > 0, nthng to find");
             }
 
             int min = _array[0];
@@ -246,6 +246,48 @@ namespace MyLists
                 }
             }
             return min;
+        }
+
+        public int FindIndexOfMaxElement()
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Length must be > 0, nthng to find");
+            }
+
+            int max = _array[0];
+            int indexMax = 0;
+
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] > max)
+                {
+                    max = _array[i];
+                    indexMax = i;
+                }
+            }
+            return indexMax;
+        }
+
+        public int FindIndexOfMinElement()
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Length must be > 0, nthng to find");
+            }
+
+            int min = _array[0];
+            int indexMin = 0;
+
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] < min)
+                {
+                    min = _array[i];
+                    indexMin = i;
+                }
+            }
+            return indexMin;
         }
 
         public void WriteArray()
