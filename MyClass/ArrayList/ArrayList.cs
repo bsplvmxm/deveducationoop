@@ -30,17 +30,8 @@ namespace MyLists
             {
                 UpSize();
             }
-            int index = 0;
-            int[] newArray = new int[Length + 1];
-            for (int i = 0; i < index; i++)
-            {
-                newArray[i] = _array[i];
-            }
-            for (int i = index; i < Length; i++)
-            {
-                newArray[i + 1] = _array[i];
-            }
-            _array = newArray;
+            MoveRight();
+
             _array[0] = value;
             Length++;
         }
@@ -70,6 +61,20 @@ namespace MyLists
             for (int i = 0; i < _array.Length; i++)
             {
                 newArray[i] = _array[i];
+            }
+            _array = newArray;
+        }
+
+        private void MoveRight(int index = 0)
+        {
+            int[] newArray = new int[Length + 1];
+            for (int i = 0; i < index; i++)
+            {
+                newArray[i] = _array[i];
+            }
+            for (int i = index; i < Length; i++)
+            {
+                newArray[i + 1] = _array[i];
             }
             _array = newArray;
         }
