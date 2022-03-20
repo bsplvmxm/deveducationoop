@@ -179,6 +179,20 @@ namespace MyLists
             return firstIndex;
         }
 
+        public void ChangeValueByIndex(int index, int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Length of array == 0, nthng to change");
+            }
+            if (index > Length)
+            {
+                throw new Exception("Length must be higher than index");
+            }    
+
+            _array[index] = value;
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
