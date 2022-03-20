@@ -47,5 +47,14 @@ namespace MyLists
             }
             _array = newArray;
         }
+
+        private void CopyArray(int[] newArray)
+        {
+            for (int i = 0; i < _array.Length; i++)
+            {
+                newArray[i] = _array[i];
+            }
+            _array = newArray;
+        }
     }
 }
