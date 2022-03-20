@@ -193,6 +193,23 @@ namespace MyLists
             _array[index] = value;
         }
 
+        public void ReverseArray()
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Length must be > 0");
+            }
+
+            int[] newArray = new int[Length];
+
+            for (int i = 0; i < Length; i++)
+            {
+                newArray[i] += _array[Length - 1 - i];
+            }
+
+            _array = newArray;
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
