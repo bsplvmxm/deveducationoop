@@ -145,5 +145,21 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCaseSource(typeof(FindIndexOfMaxElementSource))]
+        public void FindIndexOfMaxElementTest(ArrayList list, int expected)
+        {
+            int actual = list.FindIndexOfMaxElement();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(FindIndexOfMinElementSource))]
+        public void FindIndexOfMinElementTest(ArrayList list, int expected)
+        {
+            int actual = list.FindIndexOfMinElement();
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
