@@ -4,6 +4,26 @@ namespace MyLists
 {
     public class ArrayList
     {
+        public int this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= Length)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                return _array[index];
+            }
+            set
+            {
+                if (index < 0 || index >= Length)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                _array[index] = value;
+            }
+        }
+
         public int Length { get; private set; }
 
         private int[] _array;
@@ -12,6 +32,13 @@ namespace MyLists
         {
             _array = new int[10];
             Length = 0;
+        }
+
+        public ArrayList(int value)
+        {
+            _array = new int[10];
+            _array[0] = value;
+            Length = 1;
         }
 
         public ArrayList(int[] array)
