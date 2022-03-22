@@ -60,5 +60,32 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(DeleteFromEndElementsSource))]
+        public void DeleteFromEndElementsTest(int count, ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.DeleteFromEndElements(count);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteFromBeginElementsSource))]
+        public void DeleteFromBeginElementsTest(int count, ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.DeleteFromBeginElements(count);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteWithIndexElementsSource))]
+        public void DeleteWithIndexElementsTest(int index, int count, ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.DeleteWithIndexElements(index, count);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
