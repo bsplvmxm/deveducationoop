@@ -14,6 +14,21 @@ namespace MyLists
             Length = 0;
         }
 
+        public ArrayList(int[] array)
+        {
+            if (array==null || array.Length==0)
+            {
+                _array = new int[10];
+                Length = 0;
+            }
+            else
+            {
+                _array = array;
+                Length = array.Length;
+                UpSize();
+            }
+        }
+
         public void AddToEnd(int value)
         {
             if (Length >= _array.Length)
