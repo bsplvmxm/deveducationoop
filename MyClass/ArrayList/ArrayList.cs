@@ -390,17 +390,20 @@ namespace MyLists
             }
 
             int count = 0;
-            int index = 0;
 
             for (int i = 0; i < Length; i++)
             {
                 if (_array[i] == value)
                 {
-                    index = i;
-                    DeleteWithIndex(index);
                     count++;
                 }
+                else
+                {
+                    _array[i - count] = _array[i];
+                }
             }
+            Length -= count;
+
             return count;
         }
 
