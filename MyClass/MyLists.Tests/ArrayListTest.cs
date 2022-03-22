@@ -87,5 +87,21 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(GetLengthSource))]
+        public void GetLengthTest(ArrayList list, int expected)
+        {
+            int actual = list.GetLength();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(GetValueByIndexSource))]
+        public void GetValueByIndexTest(int index, ArrayList list, int expected)
+        {
+            int actual = list.GetValueByIndex(index);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
