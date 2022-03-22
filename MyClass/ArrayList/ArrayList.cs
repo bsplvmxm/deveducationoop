@@ -95,8 +95,7 @@ namespace MyLists
             if (Length < 1)
             {
                 throw new Exception("Length of array < 1, nthng to delete");
-            }
-            
+            }        
             Length--;
         }
 
@@ -106,12 +105,7 @@ namespace MyLists
             {
                 throw new Exception("Length of array < 1, nthng to delete");
             }
-            if (Length <= _array.Length / 2)
-            {
-                DownSize();
-            }
             MoveLeft();
-
             Length--;
         }
 
@@ -121,12 +115,7 @@ namespace MyLists
             {
                 throw new Exception("Length of array < 1, nthng to delete");
             }
-            if (Length <= _array.Length / 2)
-            {
-                DownSize();
-            }
             MoveLeft(index);
-
             Length--;
         }
 
