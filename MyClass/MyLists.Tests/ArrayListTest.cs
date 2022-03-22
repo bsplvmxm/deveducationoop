@@ -120,5 +120,14 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(ReverseArraySource))]
+        public void ReverseArrayTest(ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.ReverseArray();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
