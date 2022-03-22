@@ -103,5 +103,13 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCaseSource(typeof(FindFirstIndexByValueSource))]
+        public void FindFirstIndexByValueTest(int value, ArrayList list, int expected)
+        {
+            int actual = list.FindFirstIndexByValue(value);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
