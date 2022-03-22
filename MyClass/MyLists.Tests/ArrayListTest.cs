@@ -179,5 +179,21 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(DeleteFirstByValueSource))]
+        public void DeleteFirstByValueTest(int value, ArrayList list, int expected)
+        {
+            int actual = list.DeleteFirstByValue(value);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(DeleteElementsByValueSource))]
+        public void DeleteElementsByValueTest(int value, ArrayList list, int expected)
+        {
+            int actual = list.DeleteElementsByValue(value);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
