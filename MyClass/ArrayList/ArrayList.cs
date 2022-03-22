@@ -436,6 +436,48 @@ namespace MyLists
             Console.WriteLine();
         }
 
+        public override string ToString()
+        {
+            string str = "";
+
+            for (int i = 0; i < Length; i++)
+            {
+                str += $"{_array[i]} ";
+            }
+
+            return str;
+        }
+
+        public override bool Equals(object obj)
+        {
+            bool isEqual = true;
+
+            if (obj == null || !(obj is ArrayList))
+            {
+                isEqual = false;
+            }
+            else
+            {
+                ArrayList list = (ArrayList)obj;
+
+                if (list.Length != this.Length)
+                {
+                    isEqual = false;
+                }
+                else
+                {
+                    for (int i = 0; i < this.Length; i++)
+                    {
+                        if (list[i] != this[i])
+                        {
+                            isEqual = false;
+                        }
+                    }
+                }
+            }
+            return isEqual;
+        }
+
         private void UpSize()
         {
             int newLength = (int)(_array.Length * 1.5d + 1);
