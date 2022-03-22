@@ -96,10 +96,7 @@ namespace MyLists
             {
                 throw new Exception("Length of array < 1, nthng to delete");
             }
-            if (Length <= _array.Length / 2)
-            {
-                DownSize();
-            }
+            
             Length--;
         }
 
