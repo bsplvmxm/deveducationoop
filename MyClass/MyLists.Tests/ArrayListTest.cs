@@ -42,5 +42,23 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(DeleteFromBeginSource))]
+        public void DeleteFromBeginTest(ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.DeleteFromBegin();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteWithIndexSource))]
+        public void DeleteWithIndexTest(int index, ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.DeleteWithIndex(index);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
