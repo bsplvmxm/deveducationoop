@@ -161,5 +161,23 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCaseSource(typeof(SortInAscendingSource))]
+        public void SortInAscendingTest(ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.SortInAscending();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(SortInDescendingSource))]
+        public void SortInDescendingTest(ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.SortInDescending();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
