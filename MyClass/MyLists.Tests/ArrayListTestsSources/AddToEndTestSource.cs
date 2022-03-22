@@ -14,6 +14,16 @@ namespace MyLists.Tests.ArrayListTestsSources
             ArrayList list = new ArrayList(new int[] { 1, 2, 3 });
             ArrayList expectedList = new ArrayList(new int[] { 1, 2, 3, 5 });
             yield return new object[] { value, list, expectedList };
+
+            value = 66;
+            list = new ArrayList(new int[] { 2,  });
+            expectedList = new ArrayList(new int[] { 2, 66 });
+            yield return new object[] { value, list, expectedList };
+
+            value = 3;
+            list = new ArrayList(new int[] { });
+            expectedList = new ArrayList(new int[] { 3 });
+            yield return new object[] { value, list, expectedList };
         }
     }
 }
