@@ -125,10 +125,7 @@ namespace MyLists
             {
                 throw new Exception("Length of array < count numbers that u want to delete");
             }
-            if (Length <= _array.Length / 2)
-            {
-                DownSize();
-            }
+
             for (int i = 0; i < count; i++)
             {
                 Length--;
@@ -141,10 +138,7 @@ namespace MyLists
             {
                 throw new Exception("Length of array < count numbers that u want to delete");
             }
-            if (Length <= _array.Length / 2)
-            {
-                DownSize();
-            }
+
             for (int i = 0; i < count; i++)
             {
                 MoveLeft();
@@ -159,10 +153,7 @@ namespace MyLists
             {
                 throw new Exception("Length of array < count numbers that u want to delete or < 1 => nthng delete");
             }
-            if (Length <= _array.Length / 2)
-            {
-                DownSize();
-            }
+
             for (int i = 0; i < count; i++)
             {
                 MoveLeft(index);
