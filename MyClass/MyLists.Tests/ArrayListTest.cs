@@ -111,5 +111,14 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCaseSource(typeof(ChangeValueByIndexSource))]
+        public void ChangeValueByIndexTest(int index, int value, ArrayList list, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.ChangeValueByIndex(index, value);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
