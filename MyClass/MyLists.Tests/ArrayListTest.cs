@@ -2,6 +2,7 @@
 using System.Collections;
 using NUnit.Framework;
 using MyLists.Tests.ArrayListTestsSources;
+using MyLists.Tests.ArrayListNegativeTestsSources;
 
 namespace MyLists.Tests
 {
@@ -34,6 +35,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(AddWithIndexNegativeTestSource))]
+        public void AddWithIndex_WhenIndexIsWrong_ShouldThrowNewException(int index, int value, ArrayList list)
+        {
+            Assert.Throws<ArgumentException>(() => list.AddWithIndex(index, value));
+        }
+
         [TestCaseSource(typeof(DeleteFromEndSource))]
         public void DeleteFromEndTest(ArrayList list, ArrayList expectedList)
         {
@@ -41,6 +48,12 @@ namespace MyLists.Tests
             actualList.DeleteFromEnd();
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteWhenListIsEmptyNegativeTestSource))]
+        public void DeleteFromEnd_WhenListIsEmpty_ShouldThrowException(ArrayList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteFromEnd());
         }
 
         [TestCaseSource(typeof(DeleteFromBeginSource))]
@@ -52,6 +65,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(DeleteWhenListIsEmptyNegativeTestSource))]
+        public void DeleteFromBegin_WhenListIsEmpty_ShouldThrowException(ArrayList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteFromBegin());
+        }
+
         [TestCaseSource(typeof(DeleteWithIndexSource))]
         public void DeleteWithIndexTest(int index, ArrayList list, ArrayList expectedList)
         {
@@ -59,6 +78,12 @@ namespace MyLists.Tests
             actualList.DeleteWithIndex(index);
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteWithIndexNegativeTestSource))]
+        public void DeleteWithIndex_WhenListIsEmptyOrIndexWrong_ShouldThrowException(int index, ArrayList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteWithIndex(index));
         }
 
         [TestCaseSource(typeof(DeleteFromEndElementsSource))]
