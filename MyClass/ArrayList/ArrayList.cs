@@ -128,7 +128,7 @@ namespace MyLists
         {
             if (Length < count)
             {
-                throw new Exception("Length of array < count numbers that u want to delete");
+                throw new ArgumentException("Length of array < count numbers that u want to delete");
             }
 
             for (int i = 0; i < count; i++)
