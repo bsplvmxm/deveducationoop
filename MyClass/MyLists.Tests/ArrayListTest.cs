@@ -319,5 +319,23 @@ namespace MyLists.Tests
         {
             Assert.Throws<Exception>(() => list.DeleteElementsByValue(value));
         }
+
+        [TestCaseSource(typeof(AddListToEndTestSource))]
+        public void AddListToEndTest(ArrayList list, ArrayList addList, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.AddListToEnd(addList);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(AddListToBeginTestSource))]
+        public void AddListToBeginTest(ArrayList list, ArrayList addList, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.AddListToBegin(addList);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
