@@ -349,5 +349,26 @@ namespace MyLists.Tests
         {
             Assert.Throws<NullReferenceException>(() => list.AddListToBegin(list));
         }
+
+        [TestCaseSource(typeof(AddListByIndexTestSource))]
+        public void AddListByIndexTest(int index, ArrayList list, ArrayList addList, ArrayList expectedList)
+        {
+            ArrayList actualList = list;
+            actualList.AddListByIndex(addList, index);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(ThrowNullExceptionIndexNegativeTestSource))]
+        public void AddListByIndex_WhenLinkIsNull_ShouldThrowException(int index, ArrayList list)
+        {
+            Assert.Throws<NullReferenceException>(() => list.AddListByIndex(list, index));
+        }
+
+        [TestCaseSource(typeof(ThrowArgumentExceptionListIndexNegativeTestSource))]
+        public void AddListByIndex_WhenIndexIsWrong_ShouldThrowException(int index, ArrayList list)
+        {
+            Assert.Throws<ArgumentException>(() => list.AddListByIndex(list, index));
+        }
     }
 }
