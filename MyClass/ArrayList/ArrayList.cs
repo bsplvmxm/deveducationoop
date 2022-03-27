@@ -80,6 +80,11 @@ namespace MyLists
 
         public void AddWithIndex(int index, int value)
         {
+            if (index > Length || index < 0)
+            {
+                throw new ArgumentException("index > length or < 0");
+            }
+
             if (Length + 1 >= _array.Length)
             {
                 UpSize();
@@ -92,18 +97,18 @@ namespace MyLists
 
         public void DeleteFromEnd()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
-                throw new Exception("Length of array < 1, nthng to delete");
+                throw new Exception("Length of array == 0, nthng to delete");
             }        
             Length--;
         }
 
         public void DeleteFromBegin()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
-                throw new Exception("Length of array < 1, nthng to delete");
+                throw new Exception("Length of array == 0, nthng to delete");
             }
             MoveLeft();
             Length--;
@@ -111,9 +116,9 @@ namespace MyLists
 
         public void DeleteWithIndex(int index)
         {
-            if (Length < 1)
+            if (Length == 0 || index > Length || index < 0)
             {
-                throw new Exception("Length of array < 1, nthng to delete");
+                throw new Exception("Length of array == 0, nthng to delete or index is wrong");
             }
             MoveLeft(index);
             Length--;
