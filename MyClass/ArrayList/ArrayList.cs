@@ -412,6 +412,40 @@ namespace MyLists
             return count;
         }
 
+        public void AddListToEnd(ArrayList list)
+        {
+            if (list is null)
+            {
+                throw new NullReferenceException();
+            }
+
+            AddList(list);
+        }
+
+        public void AddListToBegin(ArrayList list)
+        {
+            if (list is null)
+            {
+                throw new NullReferenceException();
+            }
+
+            AddListWithIndex(list);
+        }
+
+        public void AddListByIndex(ArrayList list, int index)
+        {
+            if (list is null)
+            {
+                throw new NullReferenceException();
+            }
+            if (index < 0 || index > Length)
+            {
+                throw new ArgumentException("index is wrong");
+            }
+
+            AddListByIndex(list, index);
+        }
+
         public void WriteArray()
         {
             for (int i = 0; i < Length; i++)
@@ -513,6 +547,40 @@ namespace MyLists
             {
                 newArray[i] = _array[i + 1];
             }
+            _array = newArray;
+        }
+
+        private void AddListWithIndex(ArrayList list, int index = 0)
+        {
+            int[] newArray = new int[list.Length + _array.Length];
+            for (int i = 0; i < index; i++)
+            {
+                newArray[i] = _array[i];
+            }
+            for (int i = index; i < list.Length + index; i++)
+            {
+                newArray[i] = list[i - index];
+            }
+            for (int i = index + list.Length; i < newArray.Length; i++)
+            {
+                newArray[i] = _array[i - list.Length];
+            }
+            Length += list.Length;
+            _array = newArray;
+        }
+
+        private void AddList(ArrayList list)
+        {
+            int[] newArray = new int[list.Length + this.Length];
+            for (int i = 0; i < this.Length; i++)
+            {
+                newArray[i] = this[i];
+            }
+            for (int i = this.Length; i < newArray.Length; i++)
+            {
+                newArray[i] = list[i - Length];
+            }
+            Length += list.Length;
             _array = newArray;
         }
     }
