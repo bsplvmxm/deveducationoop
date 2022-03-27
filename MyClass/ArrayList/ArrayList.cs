@@ -443,7 +443,7 @@ namespace MyLists
                 throw new ArgumentException("index is wrong");
             }
 
-            AddListByIndex(list, index);
+            AddListWithIndex(list, index);
         }
 
         public void WriteArray()
