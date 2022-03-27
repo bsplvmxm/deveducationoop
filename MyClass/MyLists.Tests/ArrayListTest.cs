@@ -81,7 +81,13 @@ namespace MyLists.Tests
         }
 
         [TestCaseSource(typeof(DeleteWithIndexNegativeTestSource))]
-        public void DeleteWithIndex_WhenListIsEmptyOrIndexWrong_ShouldThrowException(int index, ArrayList list)
+        public void DeleteWithIndex_WhenIndexWrong_ShouldThrowException(int index, ArrayList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteWithIndex(index));
+        }
+
+        [TestCaseSource(typeof(ThrowWhenListIsEmptyNegativeTestSource))]
+        public void DeleteWithIndex_WhenListIsEmpty_ShouldThrowException(int index, ArrayList list)
         {
             Assert.Throws<Exception>(() => list.DeleteWithIndex(index));
         }
@@ -93,6 +99,12 @@ namespace MyLists.Tests
             actualList.DeleteFromEndElements(count);
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteWhenCountIsWrongNegativeTestSource))]
+        public void DeleteFromEndElements_WhenCountIsWrong_ShouldThrowException(int count, ArrayList list)
+        {
+            Assert.Throws<ArgumentException>(() => list.DeleteFromEndElements(count));
         }
 
         [TestCaseSource(typeof(DeleteFromBeginElementsSource))]
