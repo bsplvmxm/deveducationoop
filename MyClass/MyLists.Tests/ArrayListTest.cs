@@ -116,6 +116,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(DeleteWhenCountIsWrongNegativeTestSource))]
+        public void DeleteFromBeginElements_WhenCountIsWrong_ShouldThrowException(int count, ArrayList list)
+        {
+            Assert.Throws<ArgumentException>(() => list.DeleteFromBeginElements(count));
+        }
+
         [TestCaseSource(typeof(DeleteWithIndexElementsSource))]
         public void DeleteWithIndexElementsTest(int index, int count, ArrayList list, ArrayList expectedList)
         {
@@ -123,6 +129,12 @@ namespace MyLists.Tests
             actualList.DeleteWithIndexElements(index, count);
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteWithIndexElementsNegativeTestSource))]
+        public void DeleteWithIndexElements_WhenIndexOrCountIsWrongOrListIsEmpty_ShouldThrowException(int index, int count, ArrayList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteWithIndexElements(index, count));
         }
 
         [TestCaseSource(typeof(GetLengthSource))]
@@ -133,6 +145,7 @@ namespace MyLists.Tests
             Assert.AreEqual(expected, actual);
         }
 
+
         [TestCaseSource(typeof(GetValueByIndexSource))]
         public void GetValueByIndexTest(int index, ArrayList list, int expected)
         {
@@ -140,6 +153,13 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCaseSource(typeof(GetValueByIndexNegativeTestSource))]
+        public void GetValueByIndex_WhenIndexIsWrong_ShouldThrowException(int index, ArrayList list)
+        {
+            Assert.Throws<ArgumentException>(() => list.GetValueByIndex(index));
+        }
+
 
         [TestCaseSource(typeof(FindFirstIndexByValueSource))]
         public void FindFirstIndexByValueTest(int value, ArrayList list, int expected)
