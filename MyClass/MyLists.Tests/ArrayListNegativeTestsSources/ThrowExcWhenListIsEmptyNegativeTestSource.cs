@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyLists.Tests.ArrayListNegativeTestsSources
 {
-    internal class DeleteWhenListIsEmptyNegativeTestSource : IEnumerable
+    internal class ThrowExcWhenListIsEmptyNegativeTestSource : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
