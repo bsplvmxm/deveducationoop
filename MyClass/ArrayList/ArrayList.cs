@@ -209,7 +209,7 @@ namespace MyLists
             {
                 throw new Exception("Length of array == 0, nthng to change");
             }
-            if (index > Length)
+            if (index > Length || index < 0)
             {
                 throw new Exception("Length must be higher than index");
             }    
@@ -219,7 +219,7 @@ namespace MyLists
 
         public void ReverseArray()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
                 throw new Exception("Length must be > 0, nthng to find");
             }
@@ -236,7 +236,7 @@ namespace MyLists
 
         public int FindMaxElement()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
                 throw new Exception("Length must be > 0, nthng to find");
             }
@@ -255,7 +255,7 @@ namespace MyLists
 
         public int FindMinElement()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
                 throw new Exception("Length must be > 0, nthng to find");
             }
@@ -274,7 +274,7 @@ namespace MyLists
 
         public int FindIndexOfMaxElement()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
                 throw new Exception("Length must be > 0, nthng to find");
             }
@@ -295,7 +295,7 @@ namespace MyLists
 
         public int FindIndexOfMinElement()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
                 throw new Exception("Length must be > 0, nthng to find");
             }
@@ -316,7 +316,7 @@ namespace MyLists
 
         public void SortInAscending()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
                 throw new Exception("Length must be > 0, nthng to find");
             }
@@ -339,7 +339,7 @@ namespace MyLists
 
         public void SortInDescending()
         {
-            if (Length < 1)
+            if (Length == 0)
             {
                 throw new Exception("Length must be > 0, nthng to find");
             }
