@@ -141,7 +141,7 @@ namespace MyLists
         {
             if (Length < count)
             {
-                throw new Exception("Length of array < count numbers that u want to delete");
+                throw new ArgumentException("Length of array < count numbers that u want to delete");
             }
 
             for (int i = 0; i < count; i++)
@@ -154,9 +154,9 @@ namespace MyLists
 
         public void DeleteWithIndexElements(int index, int count)
         {
-            if (Length < count || Length < 1)
+            if (Length < count || Length == 0 || index > Length || index < 0)
             {
-                throw new Exception("Length of array < count numbers that u want to delete or < 1 => nthng delete");
+                throw new Exception("Length of array < count numbers that u want to delete or < 1 or index is wrong");
             }
 
             for (int i = 0; i < count; i++)
@@ -174,7 +174,7 @@ namespace MyLists
         {
             if (index < 0 || index > Length)
             {
-                throw new Exception("index must be >=0 and < Length");
+                throw new ArgumentException("index is wrong");
             }
             return _array[index];
         }
