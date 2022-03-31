@@ -15,6 +15,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ArrayList\MyLists.csproj" />
+    <ProjectReference Include="..\MyLinkedLists\MyLinkedLists.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="LinkedListTestsSources\" />
+    <Folder Include="LinkedListNegativeTestsSources\" />
   </ItemGroup>
 
 </Project>
