@@ -222,6 +222,31 @@ namespace MyLinkedLists
             }
         }
 
+        public void DeleteElementsByIndex(int count, int index)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+            if (index < 0 || index > Length - 1)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            Node prevDel = GetNodeByIndex(index - 1);
+            Node nextDel = GetNodeByIndex(index + count);
+
+            if (index == 0)
+            {
+                _root = nextDel;
+            }
+            else
+            {
+                prevDel.Next = nextDel;
+            }
+            _tail = GetNodeByIndex(Length - 1);
+        }
+
         public void SortInAscending()
         {
             int l = Length;
