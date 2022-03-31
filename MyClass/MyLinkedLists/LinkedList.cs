@@ -247,16 +247,11 @@ namespace MyLinkedLists
             _tail = GetNodeByIndex(Length - 1);
         }
 
-        public int GetLength()
-        {
-            return Length;
-        }
-
         public int FindFirstIndexByValue(int value)
         {
             if (Length == 0)
             {
-                throw new Exception("Empty, nthng to delete");
+                throw new Exception("Empty, nthng to find");
             }
 
             int firstIndex = -1;
@@ -280,7 +275,7 @@ namespace MyLinkedLists
         {
             if (Length == 0)
             {
-                throw new Exception("Empty, nthng to delete");
+                throw new Exception("Empty, nthng to change");
             }
             if (index < 0 || index > Length - 1)
             {
@@ -289,6 +284,70 @@ namespace MyLinkedLists
 
             Node editValue = GetNodeByIndex(index);
             editValue.Value = value;          
+        }
+
+        public void Reverse()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to reverse");
+            }
+
+            Node crnt = _root;
+            Node tmp;
+
+            while (crnt.Next != null)
+            {
+                tmp = crnt.Next;
+                crnt.Next = tmp.Next;
+                tmp.Next = _root;
+                _root = tmp;
+            }
+            _tail = crnt;
+        }
+
+        public int FindMaxElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to find");
+            }
+
+            Node crnt = _root;
+            int max = crnt.Value;
+
+            while (crnt != null)
+            {
+                if (crnt.Value > max)
+                {
+                    max = crnt.Value;
+                }
+                crnt = crnt.Next;
+            }
+
+            return max;
+        }
+
+        public int FindMinElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to find");
+            }
+
+            Node crnt = _root;
+            int min = crnt.Value;
+
+            while (crnt != null)
+            {
+                if (crnt.Value < min)
+                {
+                    min = crnt.Value;
+                }
+                crnt = crnt.Next;
+            }
+
+            return min;
         }
 
         public void SortInAscending()

@@ -105,5 +105,30 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(ReverseTestSource))]
+        public void ReverseTest(LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.Reverse();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(FindMaxElementTestSource))]
+        public void FindMaxElementTest(LinkedList list, int expected)
+        {
+            int actual = list.FindMaxElement();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(FindMinElementTestSource))]
+        public void FindMinElementTest(LinkedList list, int expected)
+        {
+            int actual = list.FindMinElement();
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
