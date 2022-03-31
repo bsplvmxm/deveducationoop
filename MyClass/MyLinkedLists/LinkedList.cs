@@ -109,6 +109,27 @@ namespace MyLinkedLists
             }
         }
 
+        public void AddByIndex(int value, int index)
+        {
+            if (index < 0 || index > Length)
+            {
+                throw new ArgumentException("index is wrong");
+            }
+            else if (index == 0)
+            {
+                AddToBegin(value);
+            }
+            else
+            {
+                Node prev = GetNodeByIndex(index - 1);
+                Node next = GetNodeByIndex(index);
+                Node newNode = new Node(value);
+
+                prev.Next = newNode;
+                newNode.Next = next;
+            }
+        }
+
         public void DeleteByIndex(int index)
         {
             if (index < 0 || index > Length - 1)
