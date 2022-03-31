@@ -158,6 +158,7 @@ namespace MyLinkedLists
 
             _root = _root.Next;
         }
+
         public void DeleteByIndex(int index)
         {
             if (index < 0 || index > Length - 1)
@@ -176,6 +177,48 @@ namespace MyLinkedLists
                     crnt = crnt.Next;
                 }
                 crnt.Next = crnt.Next.Next;
+            }
+        }
+
+        public void DeleteElementsFromEnd(int count)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+            if (count > Length)
+            {
+                throw new ArgumentException("count is wrong, count mustn't be higher then Length");
+            }
+            if (Length == 1)
+            {
+                _root = null;
+                _tail = null;
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    Node prevLast = GetNodeByIndex(Length - 2);
+                    prevLast.Next = null;
+                    _tail = prevLast;
+                }
+            }
+        }
+
+        public void DeleteElementsFromBegin(int count)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+            if (count > Length)
+            {
+                throw new ArgumentException("count is wrong, count mustn't be higher then Length");
+            }
+            for (int i = 0; i < count; i++)
+            {
+                _root = _root.Next;
             }
         }
 

@@ -61,5 +61,23 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(DeleteElementsFromEndTestSource))]
+        public void DeleteElementsFromEndTest(int count, LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.DeleteElementsFromEnd(count);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(DeleteElementsFromBeginTestSource))]
+        public void DeleteElementsFromBeginTest(int count, LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.DeleteElementsFromBegin(count);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
