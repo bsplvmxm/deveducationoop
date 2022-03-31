@@ -171,12 +171,9 @@ namespace MyLinkedLists
             }
             else
             {
-                Node crnt = _root;
-                for (int i = 1; i < index; i++)
-                {
-                    crnt = crnt.Next;
-                }
-                crnt.Next = crnt.Next.Next;
+                Node prevDel = GetNodeByIndex(index - 1);
+                Node nextDel = GetNodeByIndex(index + 1);
+                prevDel.Next = nextDel;
             }
         }
 
@@ -478,6 +475,78 @@ namespace MyLinkedLists
             }
 
             _tail = GetNodeByIndex(l - 1);
+        }
+
+        public int DeleteFirstByValue(int value)  //need edit
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+
+            Node crnt = _root;
+            int index = 0;
+
+            while (crnt != null)
+            {
+                if (crnt.Value == value)
+                {
+                    if (index == 0)
+                    {
+                        crnt = crnt.Next;
+                        return index;
+                    }
+                    else
+                    {
+                        Node prevDel = GetNodeByIndex(index - 1);
+                        Node nextDel = GetNodeByIndex(index + 1);
+                        prevDel.Next = nextDel;
+                        return index;
+                    }
+                }
+                index++;
+                crnt = crnt.Next;
+            }
+            _tail = GetNodeByIndex(Length - 1);
+            return -1;
+        }
+
+        public int DeleteElementsByValue(int value)  //need edit
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+
+            Node crnt = _root;
+
+            int count = 0;
+            int index = 0;
+
+            while (crnt != null)
+            {
+                if (crnt.Value == value)
+                {
+                    if (index == 0)
+                    {
+                        crnt = crnt.Next;
+                        count++;
+                        index--;
+
+                    }
+                    else
+                    {
+                        Node prev = GetNodeByIndex(index - 1);
+                        prev.Next = crnt.Next;
+                        count++;
+                        index--;
+                    }
+                }
+                index++;
+                crnt = crnt.Next;
+            }
+            _tail = GetNodeByIndex(Length - 1);
+            return count;
         }
 
         public override string ToString()
