@@ -16,5 +16,14 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(AddToBeginTestSource))]
+        public void AddToBeginTest(int value, LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.AddToBegin(value);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }
