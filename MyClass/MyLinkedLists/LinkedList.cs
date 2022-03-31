@@ -130,6 +130,25 @@ namespace MyLinkedLists
             }
         }
 
+        public void DeleteFromEnd()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+            if (Length == 1)
+            {
+                _root = null;
+                _tail = null;
+            }
+            else
+            {
+                Node prevLast = GetNodeByIndex(Length - 2);
+                prevLast.Next = null;
+                _tail = prevLast;
+            }
+        }
+
         public void DeleteByIndex(int index)
         {
             if (index < 0 || index > Length - 1)
