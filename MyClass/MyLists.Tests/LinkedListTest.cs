@@ -88,5 +88,22 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(FindFirstIndexByValueTestSource))]
+        public void FindFirstIndexByValueTest(int value, LinkedList list, int expected)
+        {
+            int actual = list.FindFirstIndexByValue(value);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(ChangeValueByIndexTestSource))]
+        public void ChangeValueByIndexTest(int index, int value, LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.ChangeValueByIndex(index, value);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
     }
 }

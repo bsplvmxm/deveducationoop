@@ -163,7 +163,7 @@ namespace MyLinkedLists
         {
             if (index < 0 || index > Length - 1)
             {
-                throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException("Index out of range");
             }
             else if (index == 0)
             {
@@ -230,7 +230,7 @@ namespace MyLinkedLists
             }
             if (index < 0 || index > Length - 1)
             {
-                throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException("Index out of range");
             }
 
             Node prevDel = GetNodeByIndex(index - 1);
@@ -245,6 +245,50 @@ namespace MyLinkedLists
                 prevDel.Next = nextDel;
             }
             _tail = GetNodeByIndex(Length - 1);
+        }
+
+        public int GetLength()
+        {
+            return Length;
+        }
+
+        public int FindFirstIndexByValue(int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+
+            int firstIndex = -1;
+            Node crnt = _root;
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (crnt.Value == value)
+                {
+                    firstIndex = i;
+                    break;
+                }
+
+                crnt = crnt.Next;
+            }
+
+            return firstIndex;
+        }
+
+        public void ChangeValueByIndex(int index, int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+            if (index < 0 || index > Length - 1)
+            {
+                throw new IndexOutOfRangeException("Index out of range");
+            }
+
+            Node editValue = GetNodeByIndex(index);
+            editValue.Value = value;          
         }
 
         public void SortInAscending()
