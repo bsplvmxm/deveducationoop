@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="LinkedListTestsSources\" />
     <Folder Include="LinkedListNegativeTestsSources\" />
   </ItemGroup>
 

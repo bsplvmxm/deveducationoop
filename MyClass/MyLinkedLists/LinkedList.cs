@@ -94,6 +94,21 @@ namespace MyLinkedLists
             }
         }
 
+        public void AddToBegin(int value)
+        {
+            if (_root == null)
+            {
+                _root = new Node(value);
+                _tail = _root;
+            }
+            else
+            {
+                Node crnt = _root;
+                _root = new Node(value);
+                _root.Next = crnt;
+            }
+        }
+
         public void DeleteByIndex(int index)
         {
             if (index < 0 || index > Length - 1)
