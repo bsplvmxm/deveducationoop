@@ -149,6 +149,15 @@ namespace MyLinkedLists
             }
         }
 
+        public void DeleteFromBegin()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to delete");
+            }
+
+            _root = _root.Next;
+        }
         public void DeleteByIndex(int index)
         {
             if (index < 0 || index > Length - 1)
