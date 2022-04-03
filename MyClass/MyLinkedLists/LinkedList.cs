@@ -529,6 +529,20 @@ namespace MyLinkedLists
             return count;
         }
 
+        public void AddListToEnd(LinkedList list)
+        {
+            if (_root == null)
+            {
+                _root = list._root;
+            }
+            else
+            {
+                _tail = GetNodeByIndex(Length - 1);
+                _tail.Next = list._root;
+                _tail = list._tail;
+            }
+        }
+
         public override string ToString()
         {
             string s = "";
