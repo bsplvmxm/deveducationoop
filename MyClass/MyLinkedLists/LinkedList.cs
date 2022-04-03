@@ -554,6 +554,31 @@ namespace MyLinkedLists
             _root = list._root;
         }
 
+        public void AddListByIndex(int index, LinkedList list)
+        {
+            if (_root == null || list._root == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (index > Length || index < 0)
+            {
+                throw new ArgumentException("index is wrong");
+            }
+            else if (index == 0)
+            {
+                AddListToBegin(list);
+            }
+            else
+            {
+                Node prev = GetNodeByIndex(index - 1);
+                Node next = GetNodeByIndex(index);
+
+                prev.Next = list._root;
+                list._root.Next = next;
+            }
+
+        }
+
         public override string ToString()
         {
             string s = "";
