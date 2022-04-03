@@ -477,7 +477,7 @@ namespace MyLinkedLists
             _tail = GetNodeByIndex(l - 1);
         }
 
-        public int DeleteFirstByValue(int value)  //need edit
+        public int DeleteFirstByValue(int value)
         {
             if (Length == 0)
             {
@@ -485,26 +485,16 @@ namespace MyLinkedLists
             }
 
             Node crnt = _root;
-            int index = 0;
 
-            while (crnt != null)
+            for (int i = 0; i < Length; i++)
             {
+                int index = i;
+
                 if (crnt.Value == value)
                 {
-                    if (index == 0)
-                    {
-                        crnt = crnt.Next;
-                        return index;
-                    }
-                    else
-                    {
-                        Node prevDel = GetNodeByIndex(index - 1);
-                        Node nextDel = GetNodeByIndex(index + 1);
-                        prevDel.Next = nextDel;
-                        return index;
-                    }
+                    DeleteByIndex(index);
+                    return index;
                 }
-                index++;
                 crnt = crnt.Next;
             }
             _tail = GetNodeByIndex(Length - 1);
@@ -529,18 +519,14 @@ namespace MyLinkedLists
                 {
                     if (index == 0)
                     {
-                        crnt = crnt.Next;
-                        count++;
-                        index--;
-
+                        crnt = crnt.Next;      
                     }
                     else
                     {
                         Node prev = GetNodeByIndex(index - 1);
                         prev.Next = crnt.Next;
-                        count++;
-                        index--;
                     }
+                    count++;
                 }
                 index++;
                 crnt = crnt.Next;

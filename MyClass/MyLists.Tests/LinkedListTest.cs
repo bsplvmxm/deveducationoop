@@ -166,24 +166,21 @@ namespace MyLists.Tests
         }
 
         [TestCaseSource(typeof(DeleteFirstByValueTestSource))]
-        public void DeleteFirstByValueTest(int value, LinkedList list, LinkedList expectedList, int expected)
-        {
-            LinkedList actualList = list;
-            actualList.DeleteFirstByValue(value);
-
+        public void DeleteFirstByValueTest(int value, int expected, LinkedList list, LinkedList expectedList)
+        {          
             int actual = list.DeleteFirstByValue(value);
+            LinkedList actualList = list;
 
             Assert.AreEqual(expected, actual);
             Assert.AreEqual(expectedList, actualList);
         }
 
         [TestCaseSource(typeof(DeleteElementsByValueTestSource))]
-        public void DeleteElementsByValueTest(int value, LinkedList list, LinkedList expectedList, int expected)
+        public void DeleteElementsByValueTest(int value, int expected, LinkedList list, LinkedList expectedList)
         {
-            LinkedList actualList = list;
-            actualList.DeleteElementsByValue(value);
 
             int actual = list.DeleteElementsByValue(value);
+            LinkedList actualList = list;
 
             Assert.AreEqual(expected, actual);
             Assert.AreEqual(expectedList, actualList);
