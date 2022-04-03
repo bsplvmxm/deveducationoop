@@ -574,7 +574,8 @@ namespace MyLinkedLists
                 Node next = GetNodeByIndex(index);
 
                 prev.Next = list._root;
-                list._root.Next = next;
+                list._tail = GetNodeByIndex(Length - 1);
+                list._tail.Next = next;
             }
 
         }
