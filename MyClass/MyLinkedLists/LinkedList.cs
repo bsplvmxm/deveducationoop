@@ -544,7 +544,14 @@ namespace MyLinkedLists
 
         public void AddListToBegin(LinkedList list)
         {
+            if (_root == null || list._root == null)
+            {
+                throw new NullReferenceException();
+            }
 
+            Node tmp = _root;
+            list._tail.Next = tmp;
+            _root = list._root;
         }
 
         public override string ToString()
