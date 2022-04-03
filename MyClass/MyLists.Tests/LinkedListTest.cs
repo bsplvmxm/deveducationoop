@@ -3,6 +3,7 @@ using System.Collections;
 using MyLinkedLists;
 using NUnit.Framework;
 using MyLists.Tests.LinkedListTestsSources;
+using MyLists.Tests.LinkedListNegativeTestsSources;
 
 namespace MyLists.Tests
 {
@@ -44,6 +45,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void DeleteFromEndTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteFromEnd());
+        }
+
         [TestCaseSource(typeof(DeleteFromBeginTestSource))]
         public void DeleteFromBeginTest(LinkedList list, LinkedList expectedList)
         {
@@ -51,6 +58,12 @@ namespace MyLists.Tests
             actualList.DeleteFromBegin();
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void DeleteFromBeginTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteFromBegin());
         }
 
         [TestCaseSource(typeof(DeleteByIndexTestSource))]
@@ -115,12 +128,24 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void ReverseTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.Reverse());
+        }
+
         [TestCaseSource(typeof(FindMaxElementTestSource))]
         public void FindMaxElementTest(LinkedList list, int expected)
         {
             int actual = list.FindMaxElement();
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void FindMaxElementTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.FindMaxElement());
         }
 
         [TestCaseSource(typeof(FindMinElementTestSource))]
@@ -131,6 +156,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void FindMinElementTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.FindMinElement());
+        }
+
         [TestCaseSource(typeof(FindIndexOfMaxElementTestSource))]
         public void FindIndexOfMaxElementTest(LinkedList list, int expected)
         {
@@ -139,12 +170,24 @@ namespace MyLists.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void FindIndexOfMaxElementTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.FindIndexOfMaxElement());
+        }
+
         [TestCaseSource(typeof(FindIndexOfMinElementTestSource))]
         public void FindIndexOfMinElementTest(LinkedList list, int expected)
         {
             int actual = list.FindIndexOfMinElement();
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void FindIndexOfMinElementTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.FindIndexOfMinElement());
         }
 
         [TestCaseSource(typeof(SortInAscendingTestSource))]
@@ -156,6 +199,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void SortInAscendingTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.SortInAscending());
+        }
+
         [TestCaseSource(typeof(SortInDescendingTestSource))]
         public void SortInDescendingTest(LinkedList list, LinkedList expectedList)
         {
@@ -163,6 +212,12 @@ namespace MyLists.Tests
             actualList.SortInDescending();
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(ThrowEmptyListNegativeTestSource))]
+        public void SortInDescendingTest_WhenListIsEmpty_ShouldThrowException(LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.SortInDescending());
         }
 
         [TestCaseSource(typeof(DeleteFirstByValueTestSource))]
@@ -195,6 +250,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(ThrowNullExceptionNegativeTestSource))]
+        public void AddListToEndTest_WhenOneOfListIsNull_ShouldThrowNullException(LinkedList list, LinkedList addList)
+        {
+            Assert.Throws<NullReferenceException>(() => list.AddListToEnd(addList));
+        }
+
         [TestCaseSource(typeof(AddListToBeginTestSource))]
         public void AddListToBeginTest(LinkedList list, LinkedList addList, LinkedList expectedList)
         {
@@ -204,6 +265,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(ThrowNullExceptionNegativeTestSource))]
+        public void AddListToBeginTest_WhenOneOfListIsNull_ShouldThrowNullException(LinkedList list, LinkedList addList)
+        {
+            Assert.Throws<NullReferenceException>(() => list.AddListToBegin(addList));
+        }
+
         [TestCaseSource(typeof(AddListByIndexTestSource))]
         public void AddListByIndexTest(int index, LinkedList list, LinkedList addList, LinkedList expectedList)
         {
@@ -211,6 +278,18 @@ namespace MyLists.Tests
             actualList.AddListByIndex(index, addList);
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(ThrowNullExceptionWithIndexNegativeTestSource))]
+        public void AddListByIndexTest_WhenOneOfListIsNull_ShouldThrowNullException(int index, LinkedList list, LinkedList addList)
+        {
+            Assert.Throws<NullReferenceException>(() => list.AddListByIndex(index, addList));
+        }
+
+        [TestCaseSource(typeof(ThrowArgumentExceptionWrongIndexNegativeTestSource))]
+        public void AddListByIndexTest_WhenrIndexIsWrong_ShouldThrowArgumentException(int index, LinkedList list, LinkedList addList)
+        {
+            Assert.Throws<ArgumentException>(() => list.AddListByIndex(index, addList));
         }
     }
 }

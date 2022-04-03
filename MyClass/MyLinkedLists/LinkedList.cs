@@ -401,6 +401,11 @@ namespace MyLinkedLists
 
         public void SortInAscending()
         {
+            if (Length == 0)
+            {
+                throw new Exception("List is empty, nthng to sort");
+            }
+
             int l = Length;
             Node crnt;
             Node prev;
@@ -440,6 +445,11 @@ namespace MyLinkedLists
 
         public void SortInDescending()
         {
+            if (Length == 0)
+            {
+                throw new Exception("Length is empty, nthng to sort");
+            }
+
             int l = Length;
             Node crnt;
             Node prev;
