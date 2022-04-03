@@ -501,7 +501,7 @@ namespace MyLinkedLists
             return -1;
         }
 
-        public int DeleteElementsByValue(int value)  //need edit
+        public int DeleteElementsByValue(int value)
         {
             if (Length == 0)
             {
@@ -515,20 +515,14 @@ namespace MyLinkedLists
 
             while (crnt != null)
             {
-                if (crnt.Value == value)
+                index = FindFirstIndexByValue(value);
+
+                if (index != -1)
                 {
-                    if (index == 0)
-                    {
-                        crnt = crnt.Next;      
-                    }
-                    else
-                    {
-                        Node prev = GetNodeByIndex(index - 1);
-                        prev.Next = crnt.Next;
-                    }
+                    DeleteByIndex(index);
                     count++;
                 }
-                index++;
+                
                 crnt = crnt.Next;
             }
             _tail = GetNodeByIndex(Length - 1);
