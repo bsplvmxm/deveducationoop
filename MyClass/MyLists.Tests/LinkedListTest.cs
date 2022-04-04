@@ -84,6 +84,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(ThrowArgumentExceptionWhenCountIsWrongNegativeTestSource))]
+        public void DeleteElementsFromEndTest_WhenCountIsWrong_ShouldThrowArgumentException(int count, LinkedList list)
+        {
+            Assert.Throws<ArgumentException>(() => list.DeleteElementsFromEnd(count));
+        }
+
         [TestCaseSource(typeof(DeleteElementsFromBeginTestSource))]
         public void DeleteElementsFromBeginTest(int count, LinkedList list, LinkedList expectedList)
         {
@@ -92,6 +98,13 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+
+        [TestCaseSource(typeof(ThrowArgumentExceptionWhenCountIsWrongNegativeTestSource))]
+        public void DeleteElementsFromBeginTest_WhenCountIsWrong_ShouldThrowArgumentException(int count, LinkedList list)
+        {
+            Assert.Throws<ArgumentException>(() => list.DeleteElementsFromBegin(count));
+        }
+
 
         [TestCaseSource(typeof(DeleteElementsByIndexTestSource))]
         public void DeleteElementsByIndexTest(int count, int index, LinkedList list, LinkedList expectedList)
@@ -102,12 +115,24 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(DeleteElementsByIndexNegativeTestSource))]
+        public void DeleteElementsByIndexTest_WhenIndexOrCountIsWrong_ShouldThrowArgumentException(int count, int index, LinkedList list)
+        {
+            Assert.Throws<ArgumentException>(() => list.DeleteElementsByIndex(count, index));
+        }
+
         [TestCaseSource(typeof(FindFirstIndexByValueTestSource))]
         public void FindFirstIndexByValueTest(int value, LinkedList list, int expected)
         {
             int actual = list.FindFirstIndexByValue(value);
 
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(FindFirstIndexByValueNegativeTestSource))]
+        public void FindFirstIndexByValueTest_WhenListIsEmpty_ShouldThrowException(int value, LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.FindFirstIndexByValue(value));
         }
 
         [TestCaseSource(typeof(ChangeValueByIndexTestSource))]
@@ -117,6 +142,12 @@ namespace MyLists.Tests
             actualList.ChangeValueByIndex(index, value);
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(ChangeValueByIndexNegativeTestSource))]
+        public void ChangeValueByIndexTest_WhenListIsEmptyOrIndexIsWrong_ShouldThrowException(int index, int value, LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.ChangeValueByIndex(index, value));
         }
 
         [TestCaseSource(typeof(ReverseTestSource))]
@@ -230,6 +261,12 @@ namespace MyLists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(ThrowExceptionWhenListIsEmptyWithValueNegativeTestSource))]
+        public void DeleteFirstByValueTest_WhenListIsEmpty_ShouldThrowException(int value, LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteFirstByValue(value));
+        }
+
         [TestCaseSource(typeof(DeleteElementsByValueTestSource))]
         public void DeleteElementsByValueTest(int value, int expected, LinkedList list, LinkedList expectedList)
         {
@@ -239,6 +276,12 @@ namespace MyLists.Tests
 
             Assert.AreEqual(expected, actual);
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(ThrowExceptionWhenListIsEmptyWithValueNegativeTestSource))]
+        public void DeleteElementsByValueTest_WhenListIsEmpty_ShouldThrowException(int value, LinkedList list)
+        {
+            Assert.Throws<Exception>(() => list.DeleteElementsByValue(value));
         }
 
         [TestCaseSource(typeof(AddListToEndTestSource))]
