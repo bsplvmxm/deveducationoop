@@ -227,7 +227,11 @@ namespace MyLinkedLists
             }
             if (index < 0 || index > Length - 1)
             {
-                throw new IndexOutOfRangeException("Index out of range");
+                throw new ArgumentException("Index out of range");
+            }
+            if (count > Length)
+            {
+                throw new ArgumentException("count is wrong");
             }
 
             Node prevDel = GetNodeByIndex(index - 1);
@@ -276,7 +280,7 @@ namespace MyLinkedLists
             }
             if (index < 0 || index > Length - 1)
             {
-                throw new IndexOutOfRangeException("Index out of range");
+                throw new Exception("Index out of range");
             }
 
             Node editValue = GetNodeByIndex(index);
